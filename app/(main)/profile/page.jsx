@@ -25,7 +25,7 @@ import { toast } from "react-hot-toast";
 import useStore from "../../(store)/store";
 import Link from "next/link";
 
-const page = () => {
+const Profile = () => {
 
   
 
@@ -34,9 +34,7 @@ const page = () => {
   const getUser = useStore((state) => state.getUser);
   const uid = user?.uid;
 
-  useEffect(() => {
-    getUser(uid);
-  }, []);
+
 
   const userFullName = userDetails?.fullName;
   const email = userDetails?.email;
@@ -47,7 +45,6 @@ const page = () => {
   const [fullName, setFullName] = useState(userFullName);
   const [phoneNumber, setPhoneNumber] = useState(userDetails?.phoneNumber);
   const [photoUrl, setPhotoUrl] = useState(userDetails?.photoUrl);
-  console.log(fullName);
 
 
   const changeImg = async (file) => {
@@ -218,4 +215,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Profile;

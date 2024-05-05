@@ -173,7 +173,7 @@ const CourseDetailsPage = ({ params }) => {
                 <CardContent>
                   {chapters.map((chapter, i) => (
                     <>
-                      <div>
+                      <div key={i}>
                         <div className="border-[--border] border-[1px] rounded-md pl-4 flex items-center py-4 justify-between mb-3">
                           Chapter {i + 1}: {chapter.chapterName}
                         </div>
@@ -200,6 +200,7 @@ const CourseDetailsPage = ({ params }) => {
                   </div>
                   <div className="flex flex-wrap py-2 gap-2">
                     {tags.map((tag) => (
+                      <>
                       <Badge>
                         {tag.tagName}
                         <CircleX
@@ -208,6 +209,7 @@ const CourseDetailsPage = ({ params }) => {
                           className="ml-2"
                         />
                       </Badge>
+                      </>
                     ))}
                   </div>
                 </CardContent>

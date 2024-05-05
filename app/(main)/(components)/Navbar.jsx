@@ -1,11 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { LogIn} from "lucide-react";
+import { LogIn } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import SheetModal from "./SheetModal";
 import { useRouter } from "next/navigation";
-import {  db } from "@/app/(firebase)/config";
+import { db } from "@/app/(firebase)/config";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,6 +24,10 @@ const Navbar = () => {
   const navigate = useRouter();
   const user = JSON.parse(localStorage.getItem("user"));
   const userUID = user?.uid;
+  const query = doc(db, "users", userUID);
+  const [userDetails, loading, error] = useDocumentData(query);
+  const logOut = useStore((state) => state.logOut);
+
   if (!user) {
     return (
       <div className="w-full border-b-[1px] border-[--border] bg-white flex items-center justify-end p-4 gap-3">
@@ -32,13 +36,9 @@ const Navbar = () => {
       </div>
     );
   }
-  const query = doc(db, "users", userUID);
-  const [userDetails, loading, error] = useDocumentData(query);
 
   const role = userDetails?.role;
   const avatarImg = userDetails?.photoUrl;
-
-  const logOut = useStore((state) => state.logOut);
 
   return (
     <div className="h-[10vh] w-full navbar flex items-center justify-end py-2 px-4 lg:px-10 border-b-[1px] border-[--border] bg-white lg:pl-[19%]">

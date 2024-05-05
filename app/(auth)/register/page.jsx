@@ -77,7 +77,7 @@ const Register = () => {
           </form>
         </CardContent>
         <CardFooter className="text-center text-sm">
-          Don't have an account?
+          Don&apos;t have an account?
           <Link
             className="font-medium underline underline-offset-4 hover:text-gray-900 dark:hover:text-gray-50 ml-2"
             href="/login"
