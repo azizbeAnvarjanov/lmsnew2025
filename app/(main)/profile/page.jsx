@@ -17,8 +17,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { useRouter } from "next/navigation";
-import { auth, db, storage } from "../../(firebase)/config";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db, storage } from "../../(firebase)/config";
+import { doc, updateDoc } from "firebase/firestore";
 import Image from "next/image";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { toast } from "react-hot-toast";
@@ -26,13 +26,11 @@ import useStore from "../../(store)/store";
 import Link from "next/link";
 
 const page = () => {
-  const navigate = useRouter();
 
   
 
   const user = JSON.parse(localStorage.getItem("user"));
   const userDetails = useStore((state) => state.userDetailsInfo);
-  const userLoading = useStore((state) => state.userLoading);
   const getUser = useStore((state) => state.getUser);
   const uid = user?.uid;
 
@@ -44,7 +42,6 @@ const page = () => {
   const email = userDetails?.email;
   const role = userDetails?.role;
   const token = userDetails?.token;
-  const emailVerified = user?.emailVerified;
 
   const [bio, setBio] = useState(userDetails?.bio);
   const [fullName, setFullName] = useState(userFullName);
@@ -52,7 +49,6 @@ const page = () => {
   const [photoUrl, setPhotoUrl] = useState(userDetails?.photoUrl);
   console.log(fullName);
 
-  const [imageLoading, setimageLoading] = useState(false);
 
   const changeImg = async (file) => {
     try {

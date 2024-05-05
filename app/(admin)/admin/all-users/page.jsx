@@ -7,30 +7,25 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AddUserDialog from "../../(components)/AddUserDialog";
-import useStore from "@/app/(store)/store";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection } from "firebase/firestore";
 import { db } from "@/app/(firebase)/config";
 import EditUserDialog from "../../(components)/EditUserDialog";
 import DeleteUserDialog from "../../(components)/DeleteUserDialog";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
 const Allusers = () => {
-
   const query = collection(db, "users");
   const [docs, loadin, error] = useCollectionData(query);
 
-
   if (loadin) {
-    return <>loading....</>
+    return <>loading....</>;
   }
-
 
   if (error) {
-    return <>Error server </>
+    return <>Error server </>;
   }
-
 
   return (
     <div>
@@ -57,8 +52,13 @@ const Allusers = () => {
                   <TableCell>{user.role}</TableCell>
                   <TableCell>
                     <div className="flex items-center gap-2">
-                      <EditUserDialog userEmail={user.email} userFullName={user.fullName} userRole={user.role} userUid={user.id} />
-                      <DeleteUserDialog  user={user}/>
+                      <EditUserDialog
+                        userEmail={user.email}
+                        userFullName={user.fullName}
+                        userRole={user.role}
+                        userUid={user.id}
+                      />
+                      <DeleteUserDialog user={user} />
                     </div>
                   </TableCell>
                 </TableRow>

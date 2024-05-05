@@ -1,12 +1,10 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { Code, Compass, Layers, Mail, ShieldEllipsis } from "lucide-react";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 const SideLinks = () => {
-  const navigate = useRouter();
   const pathName = usePathname();
   const [isActive, setIsActive] = useState(0);
 
@@ -56,7 +54,7 @@ const SideLinks = () => {
         <>
           {teacherLinks.map((link, i) => (
             <Link
-            key={i}
+              key={i}
               href="#"
               onClick={() => setIsActive(i)}
               variant="outline"
@@ -73,7 +71,7 @@ const SideLinks = () => {
         <>
           {userLinks.map((link, i) => (
             <Link
-            key={i}
+              key={i}
               href="#"
               onClick={() => setIsActive(i)}
               variant="outline"

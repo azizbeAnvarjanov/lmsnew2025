@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   CardTitle,
   CardDescription,
@@ -12,20 +12,12 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { toast } from "react-hot-toast";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "@/app/(firebase)/config";
-import { useRouter } from "next/navigation";
-import { doc, setDoc } from "firebase/firestore";
 import useStore from "@/app/(store)/store";
 
 const Register = () => {
-  const navigate = useRouter();
-
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [passwordConf, setPasswordConf] = useState();
-
 
   const register = useStore((state) => state.register);
 
@@ -75,7 +67,11 @@ const Register = () => {
                 value={passwordConf}
               />
             </div>
-            <Button onClick={(e) => register(e, email, password, passwordConf)} className="w-full" type="submit">
+            <Button
+              onClick={(e) => register(e, email, password, passwordConf)}
+              className="w-full"
+              type="submit"
+            >
               Create accaunt
             </Button>
           </form>

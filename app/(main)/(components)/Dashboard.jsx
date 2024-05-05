@@ -1,8 +1,6 @@
 import React from "react";
-import BookCard from "./BookCard";
-import FilterBlock from "./FilterBlock";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { collection, doc } from "firebase/firestore";
+import { collection } from "firebase/firestore";
 import { db } from "@/app/(firebase)/config";
 
 import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
@@ -63,7 +61,6 @@ const Dashboard = () => {
 
   return (
     <div className="p-5">
-      {/* <FilterBlock /> */}
       <div className="grid grid-cols-4 gap-4 scroll-ms">
         {courses?.map((course) => (
           <Card key={course.id} className="border-[1px] border-[--border] shadow-none overflow-hidden rounded-lg">

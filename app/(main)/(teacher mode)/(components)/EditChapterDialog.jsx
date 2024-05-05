@@ -16,8 +16,6 @@ import { Link2, Pencil } from "lucide-react";
 
 const EditChapterDialog = ({
   thisChapter,
-  chapters,
-  setChapters,
   chapterEditName,
   chapterEditVideo,
   setChapterEditName,
@@ -25,10 +23,7 @@ const EditChapterDialog = ({
 }) => {
   console.log(thisChapter);
 
-  const upDateChapter = () => {
-    const chapterId = thisChapter.id;
-    console.log(chapterId);
-  };
+
 
   return (
     <div>

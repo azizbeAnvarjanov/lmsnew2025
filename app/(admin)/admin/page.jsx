@@ -4,9 +4,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 const AdminPage = () => {
-    const navigate = useRouter();
     const userDetails = useStore((state) => state.userDetailsInfo);
-    const role = userDetails?.role;
 
   return (
     <div>

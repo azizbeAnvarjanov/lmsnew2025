@@ -85,7 +85,7 @@ const TableBlock = () => {
         <TableBody>
           {/* ---------------- */}
           {courses.map((corse) => (
-            <TableRow className="transition all">
+            <TableRow key={corse.price} className="transition all">
               <TableCell className="font-medium flex items-center space-x-4">
                 <Image
                   alt="Introduction to Web Development"

@@ -9,9 +9,8 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "@/app/(firebase)/config";
-import { collection, doc } from "firebase/firestore";
+import { doc } from "firebase/firestore";
 import {
-  useCollectionData,
   useDocumentData,
 } from "react-firebase-hooks/firestore";
 import { Skeleton } from "@/components/ui/skeleton";

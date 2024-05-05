@@ -4,9 +4,6 @@ import Image from "next/image";
 import {
   ChevronLeft,
   CircleX,
-  Link2,
-  Pencil,
-  PlusCircle,
   UploadCloud,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -22,21 +19,13 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
 import { Textarea } from "@/components/ui/textarea";
 import { useRouter } from "next/navigation";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db, storage } from "@/app/(firebase)/config";
+import { db, storage } from "@/app/(firebase)/config";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { doc, updateDoc } from "firebase/firestore";
 import AddChapterDialog from "../../../(components)/AddChapterDialog";
-import EditChapterDialog from "../../../(components)/EditChapterDialog";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { toast } from "react-hot-toast";
 
@@ -44,11 +33,10 @@ const CourseDetailsPage = ({ params }) => {
   const navigate = useRouter();
 
   const user = JSON.parse(localStorage.getItem("user"));
-  const [userInfo] = useDocumentData(doc(db, "users", user?.uid));
 
   // get course
   const courseId = params.courseId;
-  const [courseDetails, loading, error] = useDocumentData(
+  const [courseDetails] = useDocumentData(
     doc(db, "courses", courseId)
   );
   const courseName = courseDetails?.courseName;

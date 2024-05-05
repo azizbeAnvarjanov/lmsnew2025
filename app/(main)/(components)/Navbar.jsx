@@ -1,14 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { LogIn, Menu, Search } from "lucide-react";
+import { LogIn} from "lucide-react";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React from "react";
 import SheetModal from "./SheetModal";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db } from "@/app/(firebase)/config";
+import {  db } from "@/app/(firebase)/config";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -40,7 +37,6 @@ const Navbar = () => {
 
   const role = userDetails?.role;
   const avatarImg = userDetails?.photoUrl;
-  const fullName = userDetails?.fullName;
 
   const logOut = useStore((state) => state.logOut);
 

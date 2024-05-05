@@ -1,25 +1,18 @@
 import {
   createUserWithEmailAndPassword,
-  deleteUser,
-  getAuth,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
-  signOut,
 } from "firebase/auth";
 import { toast } from "react-hot-toast";
 import { create } from "zustand";
 import { auth, db } from "../(firebase)/config";
 import {
-  collection,
   deleteDoc,
   doc,
   getDoc,
-  getDocs,
-  onSnapshot,
   setDoc,
   updateDoc,
 } from "firebase/firestore";
-import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 
 const useStore = create((set, get) => ({

@@ -12,7 +12,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
-import { Link2, Target } from "lucide-react";
+import { Link2 } from "lucide-react";
 
 const AddChapterDialog = ({ setAddChapterOpen, addChapterOpen, chapters, setChapters, chapterName, setChapterName, chapterVideo, setChapterVideo }) => {
 

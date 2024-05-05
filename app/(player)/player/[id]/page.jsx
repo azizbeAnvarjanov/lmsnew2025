@@ -1,15 +1,9 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
-  useCollectionData,
   useDocumentData,
 } from "react-firebase-hooks/firestore";
-import { collection, doc } from "firebase/firestore";
+import { doc } from "firebase/firestore";
 import { db } from "@/app/(firebase)/config";
 import PlayerSidebar from "../../_components/PlayerSidebar";
 import Playernavbar from "../../_components/Playernavbar";

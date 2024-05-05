@@ -1,14 +1,8 @@
 "use client";
-import { db } from "@/app/(firebase)/config";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { doc } from "firebase/firestore";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React from "react";
-import { useDocumentData } from "react-firebase-hooks/firestore";
 import ReactPlayer from "react-player/youtube";
 
 const PlayerVideo = ({ watchVideo, loading }) => {

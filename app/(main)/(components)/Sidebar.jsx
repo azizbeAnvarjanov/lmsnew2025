@@ -16,10 +16,6 @@ const Sidebar = () => {
       <div></div>
       <div className="sidebar-bottoom absolute bottom-0 h-[10vh] border-t-[1px] border-t-[--border] w-full left-0 py-3 px-5 flex items-center justify-between">
         <p className="text-sm">© 2024 ENRA d.o.o.</p>
-        {/* <Button variant="outline" className="border-none shadow-none p-3">
-          <CircleDashed size={15} />
-          
-        </Button> */}
         <SideBottomDropdown />
       </div>
     </div>

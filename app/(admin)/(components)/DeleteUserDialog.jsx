@@ -9,7 +9,6 @@ import {
   DialogContent,
   Dialog,
 } from "@/components/ui/dialog";
-import { deleteUser } from "firebase/auth";
 import useStore from "@/app/(store)/store";
 
 const DeleteUserDialog = ({ user }) => {
