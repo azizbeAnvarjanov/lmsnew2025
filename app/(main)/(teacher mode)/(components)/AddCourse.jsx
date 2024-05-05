@@ -11,7 +11,7 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 const AddCourse = () => {
   const [courseName, setCourseName] = useState();
   const navigate = useRouter();
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(window.localStorage.getItem("user"));
   const [userInfo] = useDocumentData(doc(db, "users", user?.uid));
 
   const addCourse = () => {

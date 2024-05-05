@@ -29,7 +29,7 @@ const Profile = () => {
 
   
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(window.localStorage.getItem("user"));
   const userDetails = useStore((state) => state.userDetailsInfo);
   const getUser = useStore((state) => state.getUser);
   const uid = user?.uid;

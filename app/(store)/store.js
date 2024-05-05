@@ -43,7 +43,7 @@ const useStore = create((set, get) => ({
           token: user.accessToken,
           emailVerified: user.emailVerified,
         }).then(() => {
-          localStorage.setItem("user", JSON.stringify(user));
+          window.localStorage.setItem("user", JSON.stringify(user));
           getDoc(doc(db, "users", String(user.uid))).then((res) => {
             // localStorage.setItem("user-details", JSON.stringify(res.data()));
             set(() => ({ user: res.data() }));
@@ -58,7 +58,7 @@ const useStore = create((set, get) => ({
   },
   logOut: async () => {
     await auth.signOut().then(() => {
-      localStorage.removeItem("user");
+      window.localStorage.removeItem("user");
       window.location.reload();
       toast.success("sign out success !");
     });
@@ -69,7 +69,7 @@ const useStore = create((set, get) => ({
       
       await signInWithEmailAndPassword(auth, email, password).then((res) => {
         toast.success("Success loged in !");
-        localStorage.setItem("user", JSON.stringify(res.user));
+        window.localStorage.setItem("user", JSON.stringify(res.user));
         getDoc(doc(db, "users", String(res.user.uid))).then((res) => {
           // localStorage.setItem("user-details", JSON.stringify(res.data()));
           set((state) => ({ userDetailsInfo: res.data() }));

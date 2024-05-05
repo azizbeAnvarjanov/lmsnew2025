@@ -22,7 +22,7 @@ import { doc } from "firebase/firestore";
 
 const Navbar = () => {
   const navigate = useRouter();
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(window.localStorage.getItem("user"));
   const userUID = user?.uid;
   const query = doc(db, "users", userUID);
   const [userDetails, loading, error] = useDocumentData(query);

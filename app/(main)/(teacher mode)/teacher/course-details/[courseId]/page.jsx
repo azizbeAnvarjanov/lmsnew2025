@@ -32,7 +32,7 @@ import { toast } from "react-hot-toast";
 const CourseDetailsPage = ({ params }) => {
   const navigate = useRouter();
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(window.localStorage.getItem("user"));
 
   // get course
   const courseId = params.courseId;
